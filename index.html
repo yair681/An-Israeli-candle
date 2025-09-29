@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>נר ישראלי | מאיר את הנשמה בלימוד התורה הקדושה</title>
+    <title>נר ישראלי - שיעור תורה</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,1200 +12,529 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --gold: #D4AF37;
-            --dark-blue: #1a237e;
-            --light-blue: #283593;
-            --white: #ffffff;
-            --light-bg: #f8f9fa;
-            --text-dark: #2c3e50;
-            --purple: #6a1b9a;
-            --deep-blue: #0d47a1;
-        }
-
         body {
-            font-family: 'David Libre', serif;
-            line-height: 1.8;
-            color: var(--text-dark);
+            font-family: 'Arial', sans-serif;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Floor 1 - Animated Sky with Stars and Clouds */
-        .floor-1 {
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #0a0a2a 0%, #1a237e 50%, #283593 100%);
+        /* קומה 1 - שמיים עם עננים נעים */
+        .floor1 {
+            height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 50%, #F0F8FF 100%);
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
+            overflow: hidden;
         }
 
         .clouds {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
+            top: 0;
+            left: 0;
         }
 
         .cloud {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.8);
             border-radius: 50px;
-            filter: blur(20px);
-            animation: float 20s infinite linear;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .cloud:before {
+            content: '';
+            position: absolute;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .cloud1:before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 30px;
+            top: 40%;
+            right: 20%;
+            animation-delay: -5s;
+        }
+
+        .cloud2:before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            right: 15px;
+        }
+
+        .cloud3 {
+            width: 120px;
+            height: 50px;
+            top: 60%;
+            left: 70%;
+            animation-delay: -10s;
+        }
+
+        .cloud3:before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: 20px;
         }
 
         @keyframes float {
-            0% { transform: translateX(-100px); }
-            100% { transform: translateX(calc(100vw + 100px)); }
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-20px) translateY(-10px); }
+            50% { transform: translateX(20px) translateY(10px); }
+            75% { transform: translateX(-10px) translateY(5px); }
         }
 
-        .floor-1-content {
-            position: relative;
-            z-index: 3;
-            max-width: 800px;
-            padding: 2rem;
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255,255,255,0.9);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            animation: heroFloat 3s ease-in-out infinite alternate;
         }
 
-        .main-title {
-            font-size: 4.5rem;
+        @keyframes heroFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #2c5aa0;
             margin-bottom: 1rem;
-            color: var(--gold);
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
-            animation: titleGlow 3s ease-in-out infinite alternate;
-            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        @keyframes titleGlow {
-            from { 
-                text-shadow: 0 0 20px rgba(212, 175, 55, 0.5),
-                           0 0 30px rgba(212, 175, 55, 0.3);
-            }
-            to { 
-                text-shadow: 0 0 30px rgba(212, 175, 55, 0.8),
-                           0 0 40px rgba(212, 175, 55, 0.5),
-                           0 0 50px rgba(212, 175, 55, 0.3);
-            }
-        }
-
-        .subtitle {
-            font-size: 2rem;
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #555;
             margin-bottom: 2rem;
-            line-height: 1.4;
-            animation: subtitleSlide 2s ease-out;
         }
 
-        @keyframes subtitleSlide {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .candle-container {
-            width: 200px;
-            height: 300px;
-            margin: 2rem auto;
-            position: relative;
-            animation: floatCandle 6s ease-in-out infinite;
-        }
-
-        @keyframes floatCandle {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-        }
-
-        .candle {
-            width: 60px;
-            height: 200px;
-            background: linear-gradient(45deg, #f5f5f5, #e8e8e8, #f5f5f5);
-            margin: 0 auto;
-            border-radius: 8px;
-            position: relative;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .flame {
-            width: 40px;
-            height: 80px;
-            background: linear-gradient(to top, #ff6b00, #ffa000, #ffd600, #ffff8d);
-            border-radius: 50% 50% 20% 20%;
-            margin: 0 auto;
-            position: relative;
-            animation: flicker 0.8s infinite alternate;
-            filter: blur(1px) drop-shadow(0 0 10px #ffa000);
-        }
-
-        @keyframes flicker {
-            0%, 100% { 
-                transform: scaleY(1) scaleX(1);
-                opacity: 0.9;
-            }
-            25% { 
-                transform: scaleY(1.1) scaleX(0.9);
-                opacity: 1;
-            }
-            50% { 
-                transform: scaleY(0.9) scaleX(1.1);
-                opacity: 0.8;
-            }
-            75% { 
-                transform: scaleY(1.05) scaleX(0.95);
-                opacity: 1;
-            }
-        }
-
-        .sparks {
+        .scroll-indicator {
             position: absolute;
-            top: -10px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 50px;
+            animation: bounce 2s infinite;
+            color: #2c5aa0;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
-        .spark {
-            position: absolute;
-            width: 3px;
-            height: 8px;
-            background: #ffd600;
-            border-radius: 50%;
-            animation: sparkle 1.5s infinite;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        @keyframes sparkle {
-            0% { 
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% { 
-                opacity: 1;
-            }
-            100% { 
-                transform: translateY(-30px) rotate(180deg);
-                opacity: 0;
-            }
-        }
-
-        /* Floor 2 - Ancient Scroll Background */
-        .floor-2 {
+        /* קומה 2 - שקיעה חמה */
+        .floor2 {
             min-height: 100vh;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(101, 67, 33, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, #f4e4bc 0%, #e8d9ac 100%);
-            padding: 5rem 0;
+            background: linear-gradient(to bottom, #FF6B6B 0%, #FF8E53 25%, #FF6B35 50%, #D63031 100%);
+            padding: 4rem 0;
             position: relative;
-            overflow: hidden;
         }
 
-        .floor-2::before {
-            content: '';
+        .sun {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M0 0h100v100H0z" fill="none" stroke="%238B4513" stroke-width="0.5"/></svg>');
-            pointer-events: none;
+            top: 10%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFD700 0%, #FFA500 70%);
+            box-shadow: 0 0 100px rgba(255,215,0,0.6);
+            animation: sunPulse 4s ease-in-out infinite;
         }
 
-        .scroll-effect {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            background: rgba(245, 222, 179, 0.3);
-            border: 2px solid #8B4513;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(139, 69, 19, 0.2);
-            z-index: 1;
+        @keyframes sunPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 100px rgba(255,215,0,0.6); }
+            50% { transform: scale(1.1); box-shadow: 0 0 150px rgba(255,215,0,0.8); }
         }
 
-        .floor-title {
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
             text-align: center;
             font-size: 3rem;
-            margin-bottom: 3rem;
-            color: var(--dark-blue);
-            position: relative;
-            z-index: 2;
-        }
-
-        .floor-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 50%;
-            transform: translateX(50%);
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            border-radius: 2px;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-right: 5px solid var(--gold);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            animation: textReveal 1s ease-out;
-        }
-
-        @keyframes textReveal {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .torah-image {
-            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
-            border-radius: 20px;
-            padding: 3rem 2rem;
             color: white;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-            animation: torahFloat 4s ease-in-out infinite;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
         }
 
-        @keyframes torahFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .torah-image::before {
-            content: '✡';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 10rem;
-            opacity: 0.1;
-            animation: rotateSymbol 20s linear infinite;
-        }
-
-        @keyframes rotateSymbol {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .torah-image h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Floor 3 - Jerusalem Stone Background */
-        .floor-3 {
-            min-height: 100vh;
-            background: 
-                linear-gradient(135deg, #8b7355 0%, #a9926f 50%, #8b7355 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><rect width="100" height="100" fill="%23555"/><path d="M0 0h100v100H0z" fill="none" stroke="%23333" stroke-width="2"/></svg>');
-            padding: 5rem 0;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .floor-3::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .details-grid {
+        .feature-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 4rem;
         }
 
-        .detail-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .feature-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .detail-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s;
+        .feature-card.animate {
+            transform: translateY(0);
+            opacity: 1;
         }
 
-        .detail-card:hover::before {
-            left: 100%;
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
 
-        .detail-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border-color: var(--gold);
-        }
-
-        .detail-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            animation: iconPulse 2s infinite;
-        }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .detail-card h3 {
-            font-size: 1.8rem;
+        .feature-icon {
+            font-size: 3rem;
+            color: #FF6B6B;
             margin-bottom: 1rem;
         }
 
-        .map-container {
-            margin-top: 4rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            z-index: 1;
+        .feature-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .map-placeholder {
-            height: 350px;
-            background: rgba(255, 255, 255, 0.2);
+        .feature-card p {
+            color: #666;
+        }
+
+        /* קומה 3 - לילה כוכבי */
+        .floor3 {
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #2C3E50 0%, #34495E 30%, #1A252F 100%);
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .stars-night {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star-night {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        .moon {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #F5F5DC 0%, #FFFACD 100%);
+            box-shadow: 0 0 50px rgba(245,245,220,0.5);
+            animation: moonGlow 6s ease-in-out infinite alternate;
+        }
+
+        .moon:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(192,192,192,0.3);
+        }
+
+        @keyframes moonGlow {
+            0% { box-shadow: 0 0 50px rgba(245,245,220,0.5); }
+            100% { box-shadow: 0 0 80px rgba(245,245,220,0.8); }
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .schedule-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .schedule-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        /* קומה 4 - זריחה וקריאה לפעולה */
+        .floor4 {
+            min-height: 80vh;
+            background: linear-gradient(to bottom, #FFB347 0%, #FFCC5C 50%, #87CEEB 100%);
+            padding: 4rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
             position: relative;
-            overflow: hidden;
         }
 
-        .map-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.3) 50%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.3) 50%, transparent 52%);
-            background-size: 30px 30px;
-            animation: mapGrid 3s linear infinite;
-        }
-
-        @keyframes mapGrid {
-            0% { background-position: 0 0; }
-            100% { background-position: 30px 30px; }
-        }
-
-        /* Floor 4 - Stained Glass Background */
-        .floor-4 {
-            min-height: 100vh;
-            background: 
-                radial-gradient(circle at 20% 80%, var(--purple) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, var(--deep-blue) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, var(--gold) 0%, transparent 50%),
-                linear-gradient(135deg, #4a148c 0%, #311b92 100%);
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stained-glass {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(45deg, transparent 45%, rgba(212, 175, 55, 0.3) 50%, transparent 55%),
-                linear-gradient(-45deg, transparent 45%, rgba(106, 27, 154, 0.3) 50%, transparent 55%);
-            background-size: 100px 100px;
-            animation: glassShift 10s ease-in-out infinite;
-            z-index: 1;
-        }
-
-        @keyframes glassShift {
-            0%, 100% { transform: translateX(0px) translateY(0px); }
-            25% { transform: translateX(10px) translateY(-10px); }
-            50% { transform: translateX(-10px) translateY(10px); }
-            75% { transform: translateX(5px) translateY(-5px); }
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .gallery-item {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-            position: relative;
-            height: 300px;
-            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
-            border: 3px solid transparent;
-            background-clip: padding-box;
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, var(--gold), var(--purple), var(--deep-blue), var(--gold));
-            border-radius: 20px;
-            z-index: -1;
-            animation: borderRotate 3s linear infinite;
-        }
-
-        @keyframes borderRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-        }
-
-        .gallery-item::after {
-            content: 'נר ישראלי';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gold);
-            font-size: 2rem;
-            font-weight: bold;
-            z-index: 1;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-
-        .gallery-item:nth-child(2n)::after {
-            content: 'תורה';
-        }
-
-        .gallery-item:nth-child(3n)::after {
-            content: 'אמונה';
-        }
-
-        /* Floor 5 - Golden Light Background */
-        .floor-5 {
-            min-height: 100vh;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #1a237e 0%, #283593 50%, #1a237e 100%);
-            padding: 5rem 0;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .light-rays {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(45deg, transparent 45%, rgba(212, 175, 55, 0.1) 50%, transparent 55%),
-                linear-gradient(-45deg, transparent 45%, rgba(255, 215, 0, 0.1) 50%, transparent 55%);
-            background-size: 200px 200px;
-            animation: rayMove 15s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes rayMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 200px 200px; }
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
+        .final-cta {
+            text-align: center;
+            background: rgba(255,255,255,0.9);
             padding: 3rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 600px;
         }
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            color: var(--gold);
-            font-size: 1.1rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-family: 'David Libre', serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-            transform: scale(1.02);
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, var(--gold), #ffd700);
-            color: var(--dark-blue);
-            border: none;
-            padding: 18px 40px;
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            color: white;
+            text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2rem;
             font-weight: bold;
-            cursor: pointer;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
-            width: 100%;
-            font-family: 'David Libre', serif;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+            margin-top: 2rem;
         }
 
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,107,107,0.6);
         }
 
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(45deg, #ffd700, var(--gold));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .contact-info {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(10px);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-left: 1.5rem;
-            width: 50px;
-            text-align: center;
-        }
-
-        /* Navigation */
-        .floor-nav {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-        }
-
-        .nav-dot {
-            display: block;
-            width: 16px;
-            height: 16px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            margin: 15px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
-            position: relative;
-        }
-
-        .nav-dot::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background: var(--gold);
-            border-color: var(--white);
-            transform: scale(1.3);
-        }
-
-        .nav-dot.active::before {
-            opacity: 1;
-            animation: pulseDot 2s infinite;
-        }
-
-        @keyframes pulseDot {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-blue);
-            color: var(--white);
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-logo {
-            font-size: 2rem;
-            color: var(--gold);
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-        }
-
-        /* Mobile Responsive */
+        /* רספונסיבי */
         @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.8rem;
+            .hero-content {
+                padding: 2rem;
             }
-
-            .subtitle {
-                font-size: 1.5rem;
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
-
-            .about-content,
-            .contact-content {
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-cards,
+            .schedule-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .floor-nav {
-                display: none;
-            }
-
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .candle-container {
-                width: 150px;
-                height: 250px;
-            }
+        /* אפקט חלק לגלילה */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Dots -->
-    <div class="floor-nav">
-        <div class="nav-dot active" data-floor="1"></div>
-        <div class="nav-dot" data-floor="2"></div>
-        <div class="nav-dot" data-floor="3"></div>
-        <div class="nav-dot" data-floor="4"></div>
-        <div class="nav-dot" data-floor="5"></div>
-    </div>
-
-    <!-- Floor 1 - Animated Sky -->
-    <section id="floor-1" class="floor-1">
-        <div class="stars" id="stars"></div>
-        <div class="clouds" id="clouds"></div>
-        <div class="floor-1-content">
-            <div class="candle-container">
-                <div class="sparks" id="sparks"></div>
-                <div class="flame"></div>
-                <div class="candle"></div>
-            </div>
-            <h1 class="main-title">נר ישראלי</h1>
-            <h2 class="subtitle">מאיר את הנשמה בלימוד התורה הקדושה</h2>
-            <p style="font-size: 1.4rem; margin-top: 2rem; animation: fadeIn 3s ease-out;">שיעורי תורה מחזקים במסירות ואהבה</p>
+    <!-- קומה 1 - שמיים עם עננים -->
+    <section class="floor1">
+        <div class="clouds">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>נר ישראלי</h1>
+            <p>מאיר את הנשמה בלימוד התורה הקדושה</p>
+        </div>
+        
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Floor 2 - Ancient Scroll -->
-    <section id="floor-2" class="floor-2">
-        <div class="scroll-effect"></div>
-        <div class="container">
-            <h2 class="floor-title">אודות השיעור</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>שיעור "נר ישראלי" הינו שיעור תורה קבוע המתקיים בקביעות, ומאיר את נשמות המשתתפים באור התורה הקדושה.</p>
-                    <p>השיעור מועבר על ידי מורים יראי שמים, בעלי ידע רב וניסיון בהוראת התורה בדרך ברורה ומובנת לכל נפש.</p>
-                    <p>אנו מאמינים שכל יהודי ויהודי הוא נר המאיר את סביבתו, וכאשר אנו מתאספים יחד - אנו יוצרים אור גדול המאיר את העולם כולו.</p>
-                    <p>השיעור מתאים לכל הרמות - ממתחילים שמעוניינים להתחיל את דרכם בעולם התורה, ועד לומדי תורה ותיקים המעוניינים להעמיק ולהתחזק.</p>
-                </div>
-                <div class="torah-image">
-                    <h3>"כי נר מצוה ותורה אור"</h3>
-                    <p>משלי ו, כג</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floor 3 - Jerusalem Stone -->
-    <section id="floor-3" class="floor-3">
-        <div class="container">
-            <h2 class="floor-title">פרטי השיעור</h2>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <div class="detail-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>ימים ושעות</h3>
-                    <p>ימי ראשון וחמישי<br>בשעה 20:00</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>מיקום</h3>
-                    <p>בית הכנסת "אור החיים"<br>רחוב התורה 23, ירושלים</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3>מרצה</h3>
-                    <p>הרב דוד כהן<br>מרצה ותיק ומנוסה</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">
+    <!-- קומה 2 - שקיעה חמה -->
+    <section class="floor2" id="about">
+        <div class="sun"></div>
+        <div class="content-section">
+            <h2 class="section-title">למה נר ישראלי?</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-torah"></i>
                     </div>
-                    <h3>נושאי הלימוד</h3>
-                    <p>פרשת השבוע<br>הלכה ואמונה<br>מוסר ומידות</p>
+                    <h3>לימוד מעמיק</h3>
+                    <p>חוויה רוחנית בלימוד התורה עם הסברים ברורים</p>
                 </div>
-            </div>
-            <div class="map-container">
-                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--gold); font-size: 1.8rem;">מיקום מדויק</h3>
-                <div class="map-placeholder">
-                    <p style="position: relative; z-index: 1;">מפת המיקום תוצג כאן<br>רחוב התורה 23, ירושלים</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>קהילה חמה</h3>
+                    <p>מפגש עם לומדים ומחפשי אמת</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>חיבור לשורשים</h3>
+                    <p>חיזוק הזהות היהודית והקשר לאבות</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Floor 4 - Stained Glass -->
-    <section id="floor-4" class="floor-4">
-        <div class="stained-glass"></div>
-        <div class="container">
-            <h2 class="floor-title">אווירת השיעור</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floor 5 - Golden Light -->
-    <section id="floor-5" class="floor-5">
-        <div class="light-rays"></div>
-        <div class="container">
-            <h2 class="floor-title">הצטרפו אלינו</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <h3 style="color: var(--gold); margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">הירשמו לשיעור</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">שם מלא</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">טלפון</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">אימייל</label>
-                            <input type="email" id="email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">הודעה</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="הערות או שאלות..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">הירשם לשיעור</button>
-                    </form>
+    <!-- קומה 3 - לילה כוכבי -->
+    <section class="floor3" id="schedule">
+        <div class="stars-night"></div>
+        <div class="moon"></div>
+        <div class="content-section">
+            <h2 class="section-title" style="color: white;">מתי ואיפה?</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>ראשון ורביעי</h3>
+                    <p>20:30-21:30</p>
                 </div>
-                <div class="contact-info">
-                    <h3 style="color: var(--gold); margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">צור קשר</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--gold);">טלפון:</strong><br>
-                            02-1234567
-                        </div>
+                <div class="schedule-item">
+                    <div class="schedule-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--gold);">אימייל:</strong><br>
-                            info@ner-israeli.org
-                        </div>
+                    <h3>בית כנסת מרכזי</h3>
+                    <p>רחוב הרב קוק 25</p>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-icon">
+                        <i class="fas fa-laptop"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--gold);">כתובת:</strong><br>
-                            רחוב התורה 23, ירושלים
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <strong style="color: var(--gold);">שעות פעילות:</strong><br>
-                            א'-ה' 16:00-22:00
-                        </div>
-                    </div>
+                    <h3>גם בזום</h3>
+                    <p>קישור לנרשמים</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">נר ישראלי</div>
-                <div>
-                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">"הקב"ה אומר לישראל: נר שלי בידכם, ונר של�ם בידי"</p>
-                    <p style="font-size: 1rem;">© 2023 נר ישראלי - כל הזכויות שמורות</p>
-                </div>
-            </div>
+    <!-- קומה 4 - זריחה וקריאה לפעולה -->
+    <section class="floor4">
+        <div class="final-cta">
+            <h2 style="color: #333; margin-bottom: 1rem;">מוכן להתחיל?</h2>
+            <p style="color: #666; font-size: 1.2rem;">הצטרף אלינו למסע של גילוי והתעלות</p>
+            <a href="tel:050-123-4567" class="cta-button">
+                <i class="fas fa-phone"></i>
+                התקשר עכשיו
+            </a>
+            <a href="mailto:ner.israeli@email.com" class="cta-button" style="margin-right: 1rem;">
+                <i class="fas fa-envelope"></i>
+                שלח מייל
+            </a>
         </div>
-    </footer>
+    </section>
 
     <script>
-        // Create stars in the sky
-        function createStars() {
-            const stars = document.getElementById('stars');
-            const starCount = 200;
-            
-            for (let i = 0; i < starCount; i++) {
+        // יצירת כוכבים בלילה
+        function createNightStars() {
+            const starsContainer = document.querySelector('.stars-night');
+            const numberOfStars = 80;
+
+            for (let i = 0; i < numberOfStars; i++) {
                 const star = document.createElement('div');
-                star.className = 'star';
+                star.className = 'star-night';
                 
-                // Random position
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
                 
-                // Random size
-                const size = Math.random() * 4 + 1;
-                
-                // Random animation delay
-                const delay = Math.random() * 3;
-                const duration = Math.random() * 2 + 2;
-                
-                star.style.left = `${left}%`;
-                star.style.top = `${top}%`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.animationDelay = `${delay}s`;
-                star.style.animationDuration = `${duration}s`;
-                
-                stars.appendChild(star);
+                starsContainer.appendChild(star);
             }
         }
 
-        // Create clouds
-        function createClouds() {
-            const clouds = document.getElementById('clouds');
-            const cloudCount = 8;
+        // אנימציית כרטיסיות בגלילה
+        function animateCards() {
+            const cards = document.querySelectorAll('.feature-card');
             
-            for (let i = 0; i < cloudCount; i++) {
-                const cloud = document.createElement('div');
-                cloud.className = 'cloud';
+            cards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
                 
-                // Random position and size
-                const top = Math.random() * 50;
-                const width = Math.random() * 200 + 100;
-                const height = Math.random() * 60 + 40;
-                const delay = Math.random() * 20;
-                const duration = Math.random() * 10 + 20;
-                
-                cloud.style.top = `${top}%`;
-                cloud.style.width = `${width}px`;
-                cloud.style.height = `${height}px`;
-                cloud.style.animationDelay = `${delay}s`;
-                cloud.style.animationDuration = `${duration}s`;
-                
-                clouds.appendChild(cloud);
-            }
-        }
-
-        // Create sparks for candle
-        function createSparks() {
-            const sparks = document.getElementById('sparks');
-            const sparkCount = 12;
-            
-            for (let i = 0; i < sparkCount; i++) {
-                const spark = document.createElement('div');
-                spark.className = 'spark';
-                
-                // Random position
-                const left = Math.random() * 80 + 10;
-                const delay = Math.random() * 1.5;
-                const duration = Math.random() * 1 + 1;
-                
-                spark.style.left = `${left}%`;
-                spark.style.animationDelay = `${delay}s`;
-                spark.style.animationDuration = `${duration}s`;
-                
-                sparks.appendChild(spark);
-            }
-        }
-
-        // Navigation functionality
-        function setupNavigation() {
-            const navDots = document.querySelectorAll('.nav-dot');
-            const floors = document.querySelectorAll('section[id^="floor-"]');
-            
-            navDots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    const floorId = `floor-${this.getAttribute('data-floor')}`;
-                    const targetFloor = document.getElementById(floorId);
-                    
-                    // Update active dot
-                    navDots.forEach(d => d.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Scroll to floor
-                    targetFloor.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-            
-            // Update active dot on scroll
-            window.addEventListener('scroll', function() {
-                let current = '';
-                const scrollPos = window.scrollY + 100;
-                
-                floors.forEach(floor => {
-                    const floorTop = floor.offsetTop;
-                    const floorHeight = floor.clientHeight;
-                    
-                    if (scrollPos >= floorTop && scrollPos < floorTop + floorHeight) {
-                        current = floor.getAttribute('id');
-                    }
-                });
-                
-                if (current) {
-                    navDots.forEach(dot => {
-                        dot.classList.remove('active');
-                        if (dot.getAttribute('data-floor') === current.split('-')[1]) {
-                            dot.classList.add('active');
-                        }
-                    });
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 200);
                 }
             });
         }
 
-        // Add fade-in animation
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
-                }
+        // גלילה לחלק הבא
+        function scrollToNext() {
+            document.getElementById('about').scrollIntoView({
+                behavior: 'smooth'
             });
-        }, { threshold: 0.1 });
+        }
 
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            createStars();
-            createClouds();
-            createSparks();
-            setupNavigation();
-            
-            // Observe elements for fade-in
-            document.querySelectorAll('.about-text p, .detail-card, .gallery-item, .contact-item').forEach(el => {
-                fadeInObserver.observe(el);
-            });
-            
-            // Add some interactive effects
-            const candle = document.querySelector('.flame');
-            setInterval(() => {
-                candle.style.transform = `scaleY(${1 + Math.random() * 0.2}) scaleX(${1 + Math.random() * 0.1})`;
-            }, 100);
+        // אירועים
+        window.addEventListener('scroll', animateCards);
+        window.addEventListener('load', () => {
+            createNightStars();
+            animateCards();
         });
 
-        // Add CSS for fadeIn animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        // אפקט פרלקס קל
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const clouds = document.querySelectorAll('.cloud');
+            
+            clouds.forEach((cloud, index) => {
+                const speed = 0.2 + (index * 0.1);
+                cloud.style.transform = `translateX(${scrolled * speed}px)`;
+            });
+        });
     </script>
 </body>
 </html>
